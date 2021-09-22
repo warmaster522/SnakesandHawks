@@ -31,54 +31,167 @@ public class Deck : MonoBehaviour
 
     void SetPlayersPostion(){
         Vector3 temp = new Vector3();
+        temp.y = -20;
+        PlayersL[0].transform.position = temp;
+
         if(Players == 6){
             temp.x = -20f;
-            temp.y = -13f;
+            temp.y = -20f;
             PlayersL[0].transform.position = temp;
             temp.x = 20f;
             PlayersL[5].transform.position = temp;
-            temp.y = 13;
+            temp.y = 20;
+            var rotationV = PlayersL[3].transform.rotation.eulerAngles;
+            rotationV.z = 180f;
+            PlayersL[3].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[3].transform.position = temp;
             temp.x = -20;
+            PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[2].transform.position = temp;
             temp.y = 0;
-            temp.x = -40;
+            temp.x = -45;
+            rotationV.z = -90;
+            PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[1].transform.position = temp;
-            temp.x = 40;
+            temp.x = 45;
+            rotationV.z = 90;
+            PlayersL[4].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[4].transform.position = temp;
+        }else if(Players == 5){
+            temp.y = 20f;
+            temp.x = 20f;
+            PlayersL[3].transform.position = temp;
+            temp.y = 20;
+            var rotationV = PlayersL[3].transform.rotation.eulerAngles;
+            rotationV.z = 180f;
+            temp.x = -20;
+            PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[2].transform.position = temp;
+            temp.y = 0;
+            temp.x = -45;
+            rotationV.z = -90;
+            PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[1].transform.position = temp;
+            temp.x = 45;
+            rotationV.z = 90;
+            PlayersL[4].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[4].transform.position = temp;
+        }else if(Players == 4){
+            temp.y = 20;
+            var rotationV = PlayersL[0].transform.rotation.eulerAngles;
+            rotationV.z = 180f;
+            temp.x = -0;
+            PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[2].transform.position = temp;
+            temp.y = 0;
+            temp.x = -45;
+            rotationV.z = -90;
+            PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[1].transform.position = temp;
+            temp.x = 45;
+            rotationV.z = 90;
+            PlayersL[3].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[3].transform.position = temp;
+        }else if(Players == 3){
+            temp.y = 20;
+            var rotationV = PlayersL[0].transform.rotation.eulerAngles;
+            rotationV.z = 180f;
+            temp.x = -0;
+            PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[2].transform.position = temp;
+            temp.y = 0;
+            temp.x = -45;
+            rotationV.z = -90;
+            PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
+            PlayersL[1].transform.position = temp;
+        }else if(Players == 2){
+            var rotationV = PlayersL[0].transform.rotation.eulerAngles;
+            rotationV.z = 180f;
+            PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
         }
+
     }
 
     string NumConvert(int i){
-        return ""+i;
+        if(i < 10)
+            return "0"+i;
+        else
+            return ""+i;
     }
 
     void GrabCards(){
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[0,i] = new GameObject("Cardr0"+(i+1));
+            cards[0,i] = new GameObject("Cardr"+(i+1));
             SpriteRenderer renderer = cards[0,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/r0"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/r"+NumConvert(i+1));
+            cards[0,i].AddComponent<Card>();
+            var card = cards[0,i].GetComponent<Card>();
+            card.color = "Red";
+            card.number = (float)(i+1);
+            if(i == 7){
+                card.value = -3f;
+            }else if(i == 2){
+                card.value = 10f;
+            }else{
+                card.value = 1;
+            }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[1,i] = new GameObject("Cardb0"+(i+1));
+            cards[1,i] = new GameObject("Cardb"+(i+1));
             SpriteRenderer renderer = cards[1,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/b0"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/b"+NumConvert(i+1));
+            cards[1,i].AddComponent<Card>();
+            var card = cards[1,i].GetComponent<Card>();
+            card.color = "Blue";
+            card.number = (float)(i+1);
+            if(i == 7){
+                card.value = -3f;
+            }else if(i == 2){
+                card.value = 10f;
+            }else{
+                card.value = 1;
+            }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[2,i] = new GameObject("Cardg0"+(i+1));
+            cards[2,i] = new GameObject("Cardg"+(i+1));
             SpriteRenderer renderer = cards[2,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/g0"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/g"+NumConvert(i+1));
+            cards[2,i].AddComponent<Card>();
+            var card = cards[2,i].GetComponent<Card>();
+            card.color = "Green";
+            card.number = (float)(i+1);
+            if(i == 7){
+                card.value = -3f;
+            }else if(i == 2){
+                card.value = 10f;
+            }else{
+                card.value = 1;
+            }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[3,i] = new GameObject("Cardy0"+(i+1));
+            cards[3,i] = new GameObject("Cardy"+(i+1));
             SpriteRenderer renderer = cards[3,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/y0"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/y"+NumConvert(i+1));
+            cards[3,i].AddComponent<Card>();
+            var card = cards[3,i].GetComponent<Card>();
+            card.color = "Yellow";
+            card.number = (float)(i+1);
+            if(i == 7){
+                card.value = -3f;
+            }else if(i == 2){
+                card.value = 10f;
+            }else{
+                card.value = 1;
+            }
         }
     }
 
 // Gives the player a card
     void GiveCard(GameObject Player, int y, int x){
         cards[y,x].transform.position = Player.transform.position;
+        cards[y,x].transform.rotation = Player.transform.rotation;
+        HandScript temp = Player.GetComponent<HandScript>();
+        temp.hand.Add(cards[y,x]);
         //Add the Card to the players hand as well... not just visually as done now
     }
 
@@ -97,7 +210,7 @@ public class Deck : MonoBehaviour
                 }
                 cards[y,x].GetComponent<SpriteRenderer>().sortingOrder = total;
                 total++;
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }
