@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ClickManager
     - Deck
     - HandScript
     Unity.2D.Animation.Editor.dll:
@@ -36,9 +37,11 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 20138}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 20140}
+      Script: {instanceID: 13244}
+    - Class: 114
+      Script: {instanceID: 15782}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -322,6 +325,18 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: a05b699012db8c4292afd74bb01d7901
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandScript
+  - hash:
+      serializedVersion: 2
+      Hash: 07e10ae9e6a5ba16016d79e2c4f455f0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Deck
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -502,6 +517,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: c6be7561bbfa2bca0cb854e951f19825
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Card
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -538,23 +559,11 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: ee40d4aa9c7fc5cab0d6fef190e52bde
+      Hash: 218048bd93e908746781901d78cf0f9b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: HandScript
-  - hash:
-      serializedVersion: 2
-      Hash: 891376eb80dd44a62414df15fbdf995e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Deck
-  - hash:
-      serializedVersion: 2
-      Hash: 302e1521acaf839b7d43e32a02b97d12
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Card
+    className: ClickManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/davidcloak/Documents/GitHub/SnakesandHawks/SnakesAndHawksWeb
+  playerPath: D:/SnakesandHawks/SnakesAndHawksWeb

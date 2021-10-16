@@ -5,11 +5,20 @@ using UnityEngine;
 public class HandScript : MonoBehaviour
 {
     public List<GameObject> hand = new List<GameObject>();
+    public bool CallAnyWays =false;
+    float lastCount = 0;
 
     public void FixedUpdate()
     {
         Vector3 pos = gameObject.transform.position;
-        if(hand.Count != 0){
+        if(hand.Count > lastCount || CallAnyWays){
+            if(gameObject.name != "Player1"){
+                for(int i = 0; i < hand.Count; i++){
+                    hand[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");
+                 }
+            }
+
+            lastCount++;
             float width;
             float half;
             int num = hand.Count;
@@ -31,6 +40,8 @@ public class HandScript : MonoBehaviour
                 }else{
                     pos.x += half;
                 }
+
+                hand[i].GetComponent<Card>().playerNum = gameObject.name;
             }
         }
     }
