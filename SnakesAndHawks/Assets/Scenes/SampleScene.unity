@@ -177,7 +177,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 52fa47e24bda8400796bbb91123f7d4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35a32286331397c469f4cc5bbc1f693c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -301,6 +301,10 @@ MonoBehaviour:
   Teams: 2
   CardsPerColorInPlay: 15
   DealSpeed: 0.25
+  Card1: red
+  Card2: black
+  Card3: blue
+  Card4: green
 --- !u!1 &455510293
 GameObject:
   m_ObjectHideFlags: 0

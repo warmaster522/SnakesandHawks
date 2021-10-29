@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,22 @@ public class HandScript : MonoBehaviour
     {
         Vector3 pos = gameObject.transform.position;
         if(hand.Count > lastCount || CallAnyWays){
-            if(gameObject.name != "Player1"){
-                for(int i = 0; i < hand.Count; i++){
-                    hand[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");
-                 }
+            // if(gameObject.name != "Player1"){
+            //     for(int i = 0; i < hand.Count; i++){
+            //         hand[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");
+            //      }
+            // }
+
+            IComparer myComparer = new HandSorter();
+            GameObject[] test = (GameObject[]) hand.ToArray();
+            Array.Sort(test, myComparer);
+
+            hand.Clear();
+            int sortingOrder = 0;
+            foreach(var thing in test){
+                thing.GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
+                sortingOrder++;
+                hand.Add(thing);
             }
 
             lastCount++;

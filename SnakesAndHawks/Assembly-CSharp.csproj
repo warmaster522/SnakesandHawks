@@ -40,7 +40,9 @@
      <Compile Include="Assets\Scripts\ClickManager.cs" />
      <Compile Include="Assets\Scripts\Deck.cs" />
      <Compile Include="Assets\Scripts\HandScript.cs" />
+     <Compile Include="Assets\Scripts\HandSorter.cs" />
      <Compile Include="Assets\Scripts\IClickable.cs" />
+     <None Include="Assets\Resources\Images\temp.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.30f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

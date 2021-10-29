@@ -12,6 +12,10 @@ public class Deck : MonoBehaviour
     public float CardsPerColorInPlay = 8;
     public GameObject[,] cards;
     public float DealSpeed = 0.25f;//Smaller is faster
+    public string Card1;
+    public string Card2;
+    public string Card3;
+    public string Card4;
 
     // Start is called before the first frame update
     void Start()
@@ -113,8 +117,8 @@ public class Deck : MonoBehaviour
 
     }
 
-    string NumConvert(int i){
-        if(i < 10)
+    string NumConvert(int i, string card){
+        if(i < 10 && card.Length == 1)
             return "0"+i;
         else
             return ""+i;
@@ -122,13 +126,17 @@ public class Deck : MonoBehaviour
 
     void GrabCards(){
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[0,i] = new GameObject("Cardr"+(i+1));
+            if(i+1 < 10){
+                cards[0,i] = new GameObject(Card1+"0"+(i+1));
+            }else{
+                cards[0,i] = new GameObject(Card1+(i+1));
+            }
             SpriteRenderer renderer = cards[0,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/r"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/"+Card1+NumConvert(i+1, Card1));
             cards[0,i].AddComponent<Card>();
             cards[0,i].AddComponent<BoxCollider2D>();
             var card = cards[0,i].GetComponent<Card>();
-            card.color = "Red";
+            card.color = Card1;
             card.number = (float)(i+1);
             if(i == 7){
                 card.value = -3f;
@@ -139,13 +147,17 @@ public class Deck : MonoBehaviour
             }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[1,i] = new GameObject("Cardb"+(i+1));
+            if(i+1 < 10){
+                cards[1,i] = new GameObject(Card2+"0"+(i+1));
+            }else{
+                cards[1,i] = new GameObject(Card2+(i+1));
+            }
             SpriteRenderer renderer = cards[1,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/b"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/"+Card2+NumConvert(i+1, Card2));
             cards[1,i].AddComponent<Card>();
             cards[1,i].AddComponent<BoxCollider2D>();
             var card = cards[1,i].GetComponent<Card>();
-            card.color = "Blue";
+            card.color = Card2;
             card.number = (float)(i+1);
             if(i == 7){
                 card.value = -3f;
@@ -156,13 +168,17 @@ public class Deck : MonoBehaviour
             }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[2,i] = new GameObject("Cardg"+(i+1));
+            if(i+1 < 10){
+                cards[2,i] = new GameObject(Card3+"0"+(i+1));
+            }else{
+                cards[2,i] = new GameObject(Card3+(i+1));
+            }
             SpriteRenderer renderer = cards[2,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/g"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/"+Card3+NumConvert(i+1, Card3));
             cards[2,i].AddComponent<Card>();
             cards[2,i].AddComponent<BoxCollider2D>();
             var card = cards[2,i].GetComponent<Card>();
-            card.color = "Green";
+            card.color = Card3;
             card.number = (float)(i+1);
             if(i == 7){
                 card.value = -3f;
@@ -173,13 +189,17 @@ public class Deck : MonoBehaviour
             }
         }
         for(int i = 0; i < (int) CardsPerColorInPlay; i++){
-            cards[3,i] = new GameObject("Cardy"+(i+1));
+            if(i+1 < 10){
+                cards[3,i] = new GameObject(Card4+"0"+(i+1));
+            }else{
+                cards[3,i] = new GameObject(Card4+(i+1));
+            }
             SpriteRenderer renderer = cards[3,i].AddComponent<SpriteRenderer>();
-            renderer.sprite = Resources.Load<Sprite>("Images/y"+NumConvert(i+1));
+            renderer.sprite = Resources.Load<Sprite>("Images/"+Card4+NumConvert(i+1, Card4));
             cards[3,i].AddComponent<Card>();
             cards[3,i].AddComponent<BoxCollider2D>();
             var card = cards[3,i].GetComponent<Card>();
-            card.color = "Yellow";
+            card.color = Card4;
             card.number = (float)(i+1);
             if(i == 7){
                 card.value = -3f;
@@ -202,19 +222,24 @@ public class Deck : MonoBehaviour
 
 // Deals the deck at the begining  
     IEnumerator DealDeck() {
-        int total = 1;
         int p = 0;
         for(int y = 3; y >= 0; y--){
             for(int x = (int)CardsPerColorInPlay-1; x >= 0; x--){
                 if(p == (int)Players-1){
                     GiveCard(PlayersL[p], y, x);
+                    cards[y,x].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");
                     p = 0;
+                }
+                else if(p == 0){ // Player keeps their cards visible others are not...
+                    GiveCard(PlayersL[p], y, x);
+                    p++;
                 }else{
+                    cards[y,x].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");
                     GiveCard(PlayersL[p], y, x);
                     p++;
                 }
-                cards[y,x].GetComponent<SpriteRenderer>().sortingOrder = total;
-                total++;
+                //GiveCard(PlayersL[0], y, x);
+                // p++;
                 yield return new WaitForSeconds(DealSpeed);
             }
         }
