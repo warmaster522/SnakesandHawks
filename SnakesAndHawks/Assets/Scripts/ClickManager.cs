@@ -18,7 +18,15 @@ public class ClickManager : MonoBehaviour
             if(hit){
                 IClickable clickable = hit.collider.GetComponent<IClickable>();
                 clickable?.Click();
+            }
+        }
+        if(Input.GetMouseButtonDown(2)){
+            Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
+            if(hit){
+                IClickable clickable = hit.collider.GetComponent<IClickable>();
+                clickable?.RightClick();
             }
         }
     }

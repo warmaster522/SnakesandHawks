@@ -7,6 +7,7 @@ public class Deck : MonoBehaviour
 {
     // Card 3 is Snake Card 8 is Hawk
     public float Players = 2f;
+    public bool Dealing = true;
     public GameObject[] PlayersL;
     public float Teams = 2f;
     public float CardsPerColorInPlay = 8;
@@ -243,6 +244,8 @@ public class Deck : MonoBehaviour
                 yield return new WaitForSeconds(DealSpeed);
             }
         }
+        Dealing = false;
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
     }
 
 // Randomizes the cards placement 

@@ -9,10 +9,22 @@ public class HandScript : MonoBehaviour
     public bool CallAnyWays =false;
     float lastCount = 0;
 
+    public void RemoveCard(GameObject card){
+        List<GameObject> temp = new List<GameObject>();
+        for(int i = 0; i < hand.Count; i++){
+            if(hand[i] != card){
+                temp.Add(hand[i]);
+            }
+        }
+        hand = temp;
+        CallAnyWays = true;
+    }
+
     public void FixedUpdate()
     {
         Vector3 pos = gameObject.transform.position;
         if(hand.Count > lastCount || CallAnyWays){
+            CallAnyWays = false;
             // if(gameObject.name != "Player1"){
             //     for(int i = 0; i < hand.Count; i++){
             //         hand[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/backofallcards");

@@ -297,10 +297,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players: 4
+  Dealing: 1
   PlayersL: []
   Teams: 2
   CardsPerColorInPlay: 15
-  DealSpeed: 0.25
+  DealSpeed: 0
   Card1: red
   Card2: black
   Card3: blue
