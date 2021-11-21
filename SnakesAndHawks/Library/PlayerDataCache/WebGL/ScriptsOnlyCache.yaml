@@ -32,16 +32,18 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 13244}
+      Script: {instanceID: 13246}
     - Class: 114
-      Script: {instanceID: 15782}
+      Script: {instanceID: 13648}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -325,13 +327,13 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: a05b699012db8c4292afd74bb01d7901
+      Hash: 044888f44426a17d183924455fc0a27f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HandScript
   - hash:
       serializedVersion: 2
-      Hash: 07e10ae9e6a5ba16016d79e2c4f455f0
+      Hash: 885c936bb83bbe490d58c4d212fb4487
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Deck
@@ -359,6 +361,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 96c0258bf4178bbb3848257bc0b5847d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ClickManager
   - hash:
       serializedVersion: 2
       Hash: 71b711096c6c32621c1d4c02310898b7
@@ -517,7 +525,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: c6be7561bbfa2bca0cb854e951f19825
+      Hash: 3c6fa3f4c0507092d60ec117ded5b438
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Card
@@ -557,12 +565,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 218048bd93e908746781901d78cf0f9b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ClickManager
   platform: 20
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

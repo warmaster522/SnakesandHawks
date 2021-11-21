@@ -8,6 +8,7 @@ public class ClickManager : MonoBehaviour
 {
     [SerializeField]
     private Camera cam;
+    public int Order = 2;
 
     private void Update()
     {

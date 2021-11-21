@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,82 +36,94 @@ public class Deck : MonoBehaviour
 
     void SetPlayersPostion(){
         Vector3 temp = new Vector3();
-        temp.y = -20;
+        temp.y = -15;
         PlayersL[0].transform.position = temp;
 
+        //sets Active Player and their icon (random between Hawk or Snake for now)
+        for(int i = 1; i < (int) Players; i++){
+            PlayersL[i].GetComponent<HandScript>().ActivePlayer = true;
+            PlayersL[i].GetComponent<SpriteRenderer>().sortingOrder = 9999;
+            if(Random.Range(1, 3) == 1){
+                PlayersL[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Hawk");
+            }else{
+                PlayersL[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/Snake");
+            }
+        }
+
+
         if(Players == 6){
-            temp.x = -20f;
-            temp.y = -20f;
+            temp.x = -15f;
+            temp.y = -15f;
             PlayersL[0].transform.position = temp;
-            temp.x = 20f;
+            temp.x = 15f;
             PlayersL[5].transform.position = temp;
-            temp.y = 20;
+            temp.y = 15;
             var rotationV = PlayersL[3].transform.rotation.eulerAngles;
-            rotationV.z = 180f;
+            rotationV.z = 0f;
             PlayersL[3].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[3].transform.position = temp;
-            temp.x = -20;
+            temp.x = -15;
             PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[2].transform.position = temp;
             temp.y = 0;
             temp.x = -45;
-            rotationV.z = -90;
+            rotationV.z = 0;
             PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[1].transform.position = temp;
             temp.x = 45;
-            rotationV.z = 90;
+            rotationV.z = 0;
             PlayersL[4].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[4].transform.position = temp;
         }else if(Players == 5){
-            temp.y = 20f;
-            temp.x = 20f;
+            temp.y = 15f;
+            temp.x = 15f;
             PlayersL[3].transform.position = temp;
-            temp.y = 20;
+            temp.y = 15;
             var rotationV = PlayersL[3].transform.rotation.eulerAngles;
-            rotationV.z = 180f;
-            temp.x = -20;
+            rotationV.z = 0f;
+            temp.x = -15;
             PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[2].transform.position = temp;
             temp.y = 0;
             temp.x = -45;
-            rotationV.z = -90;
+            rotationV.z = 0;
             PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[1].transform.position = temp;
             temp.x = 45;
-            rotationV.z = 90;
+            rotationV.z = 0;
             PlayersL[4].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[4].transform.position = temp;
         }else if(Players == 4){
-            temp.y = 20;
+            temp.y = 15;
             var rotationV = PlayersL[0].transform.rotation.eulerAngles;
-            rotationV.z = 180f;
+            rotationV.z = 0f;
             temp.x = -0;
             PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[2].transform.position = temp;
             temp.y = 0;
             temp.x = -45;
-            rotationV.z = -90;
+            rotationV.z = 0;
             PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[1].transform.position = temp;
             temp.x = 45;
-            rotationV.z = 90;
+            rotationV.z = 0;
             PlayersL[3].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[3].transform.position = temp;
         }else if(Players == 3){
-            temp.y = 20;
+            temp.y = 15;
             var rotationV = PlayersL[0].transform.rotation.eulerAngles;
-            rotationV.z = 180f;
+            rotationV.z = 0f;
             temp.x = -0;
             PlayersL[2].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[2].transform.position = temp;
             temp.y = 0;
             temp.x = -45;
-            rotationV.z = -90;
+            rotationV.z = 0;
             PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[1].transform.position = temp;
         }else if(Players == 2){
             var rotationV = PlayersL[0].transform.rotation.eulerAngles;
-            rotationV.z = 180f;
+            rotationV.z = 0f;
             PlayersL[1].transform.rotation = Quaternion.Euler(rotationV);
         }
 

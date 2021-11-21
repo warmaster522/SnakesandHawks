@@ -17,6 +17,12 @@ public class Card : MonoBehaviour, IClickable
     * Hawks are -3
     * Each other card is 1 point
     */
+    public ClickManager clickManager;
+
+    void Start()
+    {
+        clickManager = GameObject.Find("ClickManager").GetComponent<ClickManager>();
+    }
 
     public void Click(){
         Vector3 scale;
@@ -27,6 +33,8 @@ public class Card : MonoBehaviour, IClickable
             if(clicked){
                 scale = GameObject.Find("Deck").transform.position;
                 transform.position = scale;
+                gameObject.GetComponent<SpriteRenderer>().sortingOrder = clickManager.Order;
+                clickManager.Order += 1;
                 clicked = false;
                 GameObject.Find("Player1").GetComponent<HandScript>().RemoveCard(gameObject);
                 dontDo = false;
