@@ -296,12 +296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bdbaf188d841dd48b0a304172f62c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Players: 4
   Dealing: 1
   PlayersL: []
   Teams: 2
   CardsPerColorInPlay: 15
-  DealSpeed: 0
+  DealSpeed: 0.04
   Card1: NewBlack
   Card2: NewRed
   Card3: NewBlue
@@ -351,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &455510296
@@ -497,6 +497,7 @@ GameObject:
   - component: {fileID: 568129892}
   - component: {fileID: 568129893}
   - component: {fileID: 568129894}
+  - component: {fileID: 568129895}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -531,6 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &568129894
@@ -583,6 +585,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &568129895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568129891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074a44d37719a2e439e9715eb6f697ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664888442
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +608,7 @@ GameObject:
   - component: {fileID: 664888443}
   - component: {fileID: 664888444}
   - component: {fileID: 664888445}
+  - component: {fileID: 664888446}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -609,7 +624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664888442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -628,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &664888445
@@ -680,6 +696,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &664888446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664888442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074a44d37719a2e439e9715eb6f697ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &843554715
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +764,7 @@ GameObject:
   - component: {fileID: 1566047402}
   - component: {fileID: 1566047403}
   - component: {fileID: 1566047404}
+  - component: {fileID: 1566047405}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -751,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566047401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -770,6 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &1566047404
@@ -822,6 +852,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1566047405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566047401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074a44d37719a2e439e9715eb6f697ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1641407913
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641407913}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: 0}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -867,6 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &1641407916
@@ -964,6 +1007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: []
+  CardsCollected: []
   CallAnyWays: 0
   ActivePlayer: 0
 --- !u!212 &1663978279

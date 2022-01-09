@@ -3,12 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+    [x] Add a part to hold stored Cards
+    [x] Have a way to add cards to the Stored Cards list
+*/
+
 public class HandScript : MonoBehaviour
 {
     public List<GameObject> hand = new List<GameObject>();
+    public List<GameObject> CardsCollected = new List<GameObject>();
     public bool CallAnyWays = false;
     public bool ActivePlayer = false;
     float lastCount = 0;
+
+    public void AddCardToCollected(GameObject card){
+        CardsCollected.Add(card);
+    }
 
     public void RemoveCard(GameObject card)
     {
@@ -22,6 +32,19 @@ public class HandScript : MonoBehaviour
         }
         hand = temp;
         CallAnyWays = true;
+    }
+
+    public void AIsPlay(float ptemp){
+        if(hand.Count > 0){
+            Debug.Log(hand[0].name);
+            if(ptemp == 4f){
+                hand[0].GetComponent<Card>().PlayerAICard("Player4", 13, 0);
+            }else if(ptemp == 3f){
+                hand[0].GetComponent<Card>().PlayerAICard("Player3", 0, 15);
+            }else if(ptemp == 2f){
+                hand[0].GetComponent<Card>().PlayerAICard("Player2", -13, 0);
+            }
+        }
     }
 
     public void FixedUpdate()

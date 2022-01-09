@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AIPlay
     - ClickManager
     - Deck
     - HandScript
@@ -8,6 +9,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -37,11 +40,13 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13242}
+      Script: {instanceID: 12264}
     - Class: 114
-      Script: {instanceID: 13246}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13648}
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13650}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -241,6 +246,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AIPlay
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -325,13 +336,13 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 044888f44426a17d183924455fc0a27f
+      Hash: d9511627e6f2d4997b124d4194809457
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HandScript
   - hash:
       serializedVersion: 2
-      Hash: 885c936bb83bbe490d58c4d212fb4487
+      Hash: 7a86185155640ffcc9a0378a7e6670a6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Deck

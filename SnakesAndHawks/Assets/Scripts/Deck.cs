@@ -5,7 +5,7 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     // Card 3 is Snake Card 8 is Hawk
-    public float Players = 2f;
+    private float Players = 4f;
     public bool Dealing = true;
     public GameObject[] PlayersL;
     public float Teams = 2f;
@@ -94,7 +94,7 @@ public class Deck : MonoBehaviour
             PlayersL[4].transform.rotation = Quaternion.Euler(rotationV);
             PlayersL[4].transform.position = temp;
         }else if(Players == 4){
-            temp.y = 15;
+            temp.y = 25;
             var rotationV = PlayersL[0].transform.rotation.eulerAngles;
             rotationV.z = 0f;
             temp.x = -0;
@@ -257,6 +257,8 @@ public class Deck : MonoBehaviour
         }
         Dealing = false;
         gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/blank");
     }
 
 // Randomizes the cards placement 

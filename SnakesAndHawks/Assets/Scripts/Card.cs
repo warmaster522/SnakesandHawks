@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,14 @@ public class Card : MonoBehaviour, IClickable
         clickManager = GameObject.Find("ClickManager").GetComponent<ClickManager>();
     }
 
+    private void AIPlayTempMaybeSureWhyNot2(){
+        for(int i = 4; i > 1; i--){
+            float thing = (float) i;
+            string PlayerNumThing = "Player"+i;
+            GameObject.Find(PlayerNumThing).GetComponent<HandScript>().AIsPlay((thing));
+        }
+    }
+
     public void Click(){
         Vector3 scale;
 
@@ -31,13 +40,8 @@ public class Card : MonoBehaviour, IClickable
             List<GameObject> list = GameObject.Find("Player1").GetComponent<HandScript>().hand;
 
             if(clicked){
-                scale = GameObject.Find("Deck").transform.position;
-                transform.position = scale;
-                gameObject.GetComponent<SpriteRenderer>().sortingOrder = clickManager.Order;
-                clickManager.Order += 1;
-                clicked = false;
-                GameObject.Find("Player1").GetComponent<HandScript>().RemoveCard(gameObject);
-                dontDo = false;
+                PlayPlayerCard();
+                AIPlayTempMaybeSureWhyNot2();
             }
 
             for(int i =0; i < list.Count; i++){
@@ -57,6 +61,43 @@ public class Card : MonoBehaviour, IClickable
             }
         }
     }
+
+    public void PlayPlayerCard(){
+        Vector3 scale;
+        if(playerNum == "Player1"){
+            scale = GameObject.Find("Deck").transform.position;
+            transform.position = scale;
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = clickManager.Order;
+            clickManager.Order += 1;
+            clicked = false;
+            GameObject.Find("Player1").GetComponent<HandScript>().RemoveCard(gameObject);
+            dontDo = false;
+        }
+
+    }
+
+    string NumConvert(int i, string card){
+        if(i < 10 && card.Length == 1)
+            return card+"0"+i;
+        else
+            return card+""+i;
+    }
+
+    public void PlayerAICard(string PlayerNumber, float x, float y){
+        Vector3 scale;
+        scale = GameObject.Find("Deck").transform.position;
+        scale.x = x;
+        scale.y = y;
+        transform.position = scale;
+        string CardName = gameObject.name;
+        int CardNamelength = CardName.Length;
+        CardName = NumConvert(Int32.Parse(CardName.Substring(CardNamelength - 2, 2)), CardName.Substring(0, CardNamelength - 2));
+        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/"+CardName);
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = clickManager.Order;
+        clickManager.Order += 1;
+        GameObject.Find(PlayerNumber).GetComponent<HandScript>().RemoveCard(gameObject);
+    }
+
 
     public void RightClick(){
         Vector3 scale;
